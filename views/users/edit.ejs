@@ -1,0 +1,41 @@
+<%- include('../layouts/header.ejs')  %>
+
+<div class="container">
+    <h2 class="text-center mb-4">Update Profile</h2>
+    <br>
+    <img src="userImages/<%= user.image %>" height="200" width="200" alt="">
+<br>
+    <form action="" method="post" enctype="multipart/form-data">
+      <!-- Name -->
+      <div class="form-group">
+        <input type="hidden" name="user_id" value="<%= user._id %>">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" value="<%= user.name %>" name="name" required>
+      </div>
+
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" value="<%= user.email %>" name="email" disabled>
+      </div>
+
+      <!-- Mobile -->
+      <div class="form-group">
+        <label for="mobile">Mobile:</label>
+        <input type="tel" class="form-control" value="<%= user.mobile %>" name="mobile" disabled>
+      </div>
+
+      <!-- Profile Image -->
+      <div class="form-group">
+        <label for="image">Profile Image:</label>
+        <input type="file" class="form-control-file" id="image" name="image" accept="image/*">
+      </div>
+      <button type="submit" value="updateProfile" class="btn btn-primary btn-block">Update</button>
+    </form>
+  </div>
+  
+     
+
+<%- include('../layouts/footer.ejs')  %>
+
+

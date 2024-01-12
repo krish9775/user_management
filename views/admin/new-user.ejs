@@ -1,0 +1,57 @@
+<%- include('../layouts/header.ejs')  %>
+
+<div class="container">
+    <h2 class="text-center mb-4">Create New User</h2>
+    <form action="" method="post" enctype="multipart/form-data">
+      <!-- Name -->
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+      </div>
+
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+      </div>
+
+      <!-- Mobile -->
+      <div class="form-group">
+        <label for="mobile">Mobile:</label>
+        <input type="tel" class="form-control" id="mobile" name="mobile" required>
+      </div>
+
+      <!-- Profile Image -->
+      <div class="form-group">
+        <label for="image">Profile Image:</label>
+        <input type="file" class="form-control-file" id="image" name="image" accept="image/*">
+      </div>
+
+      <!-- Password -->
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" class="form-control" id="password" name="password" required>
+      </div>
+
+      <button type="submit" value="signup" class="btn btn-primary btn-block">Add User</button>
+    </form>
+    <br>
+    <% 
+
+   if(typeof message !== 'undefined'){
+    
+    %>
+
+    <p style="color: red;"><%= message %></p>
+    <%
+   }
+  %>
+
+  <a href="/admin/dashboard">Go to Dashboard</a>
+  </div>
+  
+     
+
+<%- include('../layouts/footer.ejs')  %>
+
+

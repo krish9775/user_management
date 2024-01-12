@@ -1,0 +1,58 @@
+<%- include('../layouts/header.ejs') %>
+
+    <div class="container">
+        <h2>User List</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Mobile</th>
+                    <th>Image</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <% if (users.length> 0) {
+
+                for(let i=0; i<users.length; i++){
+                    %>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <%= users[i].name %>
+                            </td>
+                            <td>
+                                <%= users[i].email %>
+                            </td>
+                            <td>
+                                <%= users[i].mobile %>
+                            </td>
+                            <td>
+                                <img src="/userImages/<%= users[i].image %>" alt="<%= users[i].image %>" width="100" height="100">
+                            </td>
+                            <td><a href="/admin/edit-user?id=<%= users[i]._id %>">Edit</a>
+                                <a href="/admin/delete-user?id=<%= users[i]._id %>">Delete</a></td>
+                        </tr>
+                    </tbody>
+                    <%
+                }
+
+                }
+                else {
+                %>
+                <tr>
+                    <td colspan="5">
+                        users Not Found
+                    </td>
+                </tr>
+                <% } %>
+                    
+        </table>
+        <a href="/admin/new-user">Add New User</a> <br> <br>
+        <a href="/admin/home">Admin Profile</a>
+        
+    </div>
+
+
+
+    <%- include('../layouts/footer.ejs') %>
